@@ -1,0 +1,115 @@
+<div class="page-container">
+  <header class="header">
+    <img src="assets/logo.png" alt="Logo" class="logo" />
+    <h6>User Registration</h6>
+    <div class="header-links">
+      <a href="#" class="login-link">Already have an account? Login here</a>
+    </div>
+  </header>
+
+  <div class="form-container">
+    <form (ngSubmit)="submitForm()">
+      <!-- Login Details Section -->
+      <h3>Login Details</h3>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>NRIC / Passport</mat-label>
+        <input matInput [(ngModel)]="nric" name="nric" required />
+      </mat-form-field>
+
+      <div class="form-group">
+        <mat-form-field class="half-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            [(ngModel)]="password"
+            name="password"
+            type="password"
+            (input)="checkPasswordCriteria()"
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field class="half-width" appearance="outline">
+          <mat-label>Confirm Password</mat-label>
+          <input
+            matInput
+            [(ngModel)]="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            (input)="checkPasswordCriteria()"
+            required
+          />
+        </mat-form-field>
+        <mat-error *ngIf="passwordMismatch">Password mismatch</mat-error>
+      </div>
+
+      <!-- Password Criteria -->
+      <div *ngIf="password" class="password-criteria">
+        <p>Password must meet the following criteria:</p>
+        <ul>
+          <li [ngClass]="{ 'valid': passwordLength }">At least 8 characters</li>
+          <li [ngClass]="{ 'valid': hasUppercase }">At least one uppercase letter</li>
+          <li [ngClass]="{ 'valid': hasLowercase }">At least one lowercase letter</li>
+          <li [ngClass]="{ 'valid': hasNumber }">At least one number</li>
+          <li [ngClass]="{ 'valid': hasSpecialChar }">At least one special character</li>
+        </ul>
+      </div>
+
+      <!-- Personal Details Section -->
+      <h3>Personal Details</h3>
+      <div class="form-group">
+        <mat-form-field class="half-width" appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput [(ngModel)]="firstName" name="firstName" required />
+        </mat-form-field>
+
+        <mat-form-field class="half-width" appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput [(ngModel)]="lastName" name="lastName" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field class="half-width" appearance="outline">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [(ngModel)]="dob" name="dob" type="date" required />
+        </mat-form-field>
+
+        <mat-form-field class="half-width" appearance="outline">
+          <mat-label>Gender</mat-label>
+          <mat-select [(ngModel)]="gender" name="gender" required>
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+            <mat-option value="other">Other</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field class="half-width" appearance="outline">
+          <mat-label>Phone No.</mat-label>
+          <input matInput [(ngModel)]="phone" name="phone" type="tel" required />
+        </mat-form-field>
+
+        <mat-form-field class="half-width" appearance="outline">
+          <mat-label>Nationality</mat-label>
+          <mat-select [(ngModel)]="nationality" name="nationality" required>
+            <mat-option value="malaysia">Malaysia</mat-option>
+            <mat-option value="india">India</mat-option>
+            <mat-option value="other">Other</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <button
+        mat-raised-button
+        color="primary"
+        class="submit-btn"
+        type="submit"
+        [disabled]="!isFormValid()"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

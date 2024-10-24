@@ -1,0 +1,265 @@
+/* General Page and Layout */
+.page-container {
+  background-color: #ffffff;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+.header {
+  background-color: #1265b7;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  height: 150px;
+  width:100%;
+  box-sizing: border-box;
+}
+
+.header-title {
+  flex: 1;
+  text-align: top;
+}
+
+.logo {
+  max-width: 450px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.header-links,
+.login-link {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.login-links {
+  margin-left: 20px;
+}
+
+.form-container {
+  max-width: 1100px;
+  margin: -50px auto 40px;
+  padding: 50px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(45, 45, 45, 0.645);
+  position: relative;
+  z-index: 2;
+  width: calc(100% - 20px);
+  box-sizing: border-box;
+}
+h6{
+  font-size: 25px;
+}
+h2 {
+  font-family: Arial, sans-serif;
+  color: #003366;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h3 {
+  color: #000000;
+  font-size: 18px;
+  margin: 30px 0 10px;
+  margin-top: 1px;
+}
+
+/* Form Field Styling */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 4%;
+}
+
+.half-width {
+  width: 48%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-error {
+  font-size: 12px;
+  color: #c80000;
+}
+
+/* Set input text color to black */
+mat-form-field input,
+mat-form-field select,
+mat-form-field .mat-select {
+  color: rgb(42, 41, 41) !important;
+}
+
+mat-form-field .mat-label,
+mat-form-field .mat-hint {
+  color: rgb(41, 39, 39);
+}
+
+/* Keep input and select text black on focus */
+mat-form-field input:focus,
+mat-form-field select:focus,
+mat-form-field .mat-select:focus {
+  color: rgb(29, 29, 29) !important;
+}
+
+/* Ensure the selected option text color is black */
+.mat-select-value {
+  color: rgb(42, 41, 41) !important;
+}
+
+/* Set color for disabled input */
+mat-form-field input[disabled],
+mat-form-field select[disabled],
+mat-form-field .mat-select[disabled] {
+  color: rgb(29, 28, 28);
+}
+
+/* Button */
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #1265b7;
+  color: white;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #079220;
+}
+
+/* Password Criteria */
+.password-criteria {
+  margin-top: 10px;
+}
+
+.password-criteria p {
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+}
+
+.password-criteria ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.password-criteria li {
+  color: red; /* Default to red */
+}
+
+.password-criteria li.valid {
+  color: green; /* Change to green when valid */
+}
+
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .header {
+    padding: 20px;
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+  }
+
+  .logo {
+    max-width: 400px;
+  }
+
+  .header-links {
+    font-size: 16px;
+    margin-left: 0;
+  }
+
+  .form-container {
+    padding: 20px;
+    width: calc(100% - 20px);
+    margin: -12px auto 20px;
+  }
+
+  .form-group {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .half-width {
+    width: 100%;
+  }
+
+  .submit-btn {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px;
+  }
+
+  .header-title {
+    margin: 0 15px;
+  }
+
+  .header-links {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    align-items: center;
+  }
+
+  .form-container {
+    margin: -12px auto 20px;
+    width: 98%;
+      padding: 15px;
+    }
+  }
+
+  .header-links,
+  .login-link {
+    font-size: 15px;
+  }
+
+  .logo {
+    max-width: 400px;
+  }
+
+  .header-links {
+    font-size: 14px;
+  }
+
+  .submit-btn {
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 15px;
+    font-weight: 100;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .form-container {
+    padding: 15px;
+  }
