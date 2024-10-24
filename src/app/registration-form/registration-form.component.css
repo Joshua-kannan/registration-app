@@ -97,7 +97,6 @@ mat-error {
   color: #c80000;
 }
 
-/* Set input text color to black */
 mat-form-field input,
 mat-form-field select,
 mat-form-field .mat-select {
@@ -109,19 +108,16 @@ mat-form-field .mat-hint {
   color: rgb(41, 39, 39);
 }
 
-/* Keep input and select text black on focus */
 mat-form-field input:focus,
 mat-form-field select:focus,
 mat-form-field .mat-select:focus {
   color: rgb(29, 29, 29) !important;
 }
 
-/* Ensure the selected option text color is black */
 .mat-select-value {
   color: rgb(42, 41, 41) !important;
 }
 
-/* Set color for disabled input */
 mat-form-field input[disabled],
 mat-form-field select[disabled],
 mat-form-field .mat-select[disabled] {
@@ -159,11 +155,11 @@ mat-form-field .mat-select[disabled] {
 }
 
 .password-criteria li {
-  color: red; /* Default to red */
+  color: red;
 }
 
 .password-criteria li.valid {
-  color: green; /* Change to green when valid */
+  color: green; /
 }
 
 
