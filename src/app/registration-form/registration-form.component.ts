@@ -16,12 +16,15 @@ export class RegistrationFormComponent {
   phone: string = '';
   nationality: string = '';
 
-  // Password criteria flags initialized as boolean
+  // Password criteria flags
   passwordLength: boolean = false;
   hasUppercase: boolean = false;
   hasLowercase: boolean = false;
   hasNumber: boolean = false;
   hasSpecialChar: boolean = false;
+
+  // Toggle to show password criteria
+  showPasswordCriteria: boolean = false;
 
   // Method to check if passwords match
   get passwordMismatch(): boolean {
@@ -38,6 +41,17 @@ export class RegistrationFormComponent {
     this.hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
   }
 
+  // New method to check if password meets all criteria
+  isPasswordValid(): boolean {
+    return (
+      this.passwordLength &&
+      this.hasUppercase &&
+      this.hasLowercase &&
+      this.hasNumber &&
+      this.hasSpecialChar
+    );
+  }
+
   // Check form validity before enabling the submit button
   isFormValid(): boolean {
     return (
@@ -49,7 +63,8 @@ export class RegistrationFormComponent {
       this.dob !== '' &&
       this.gender !== '' &&
       this.phone !== '' &&
-      this.nationality !== ''
+      this.nationality !== '' &&
+      this.isPasswordValid() // Ensure password criteria are met
     );
   }
 

@@ -24,6 +24,8 @@
             [(ngModel)]="password"
             name="password"
             type="password"
+            (focus)="showPasswordCriteria = true"
+            (blur)="showPasswordCriteria = password.length > 0"
             (input)="checkPasswordCriteria()"
             required
           />
@@ -44,7 +46,7 @@
       </div>
 
       <!-- Password Criteria -->
-      <div *ngIf="password" class="password-criteria">
+      <div *ngIf="showPasswordCriteria" class="password-criteria">
         <p>Password must meet the following criteria:</p>
         <ul>
           <li [ngClass]="{ 'valid': passwordLength }">At least 8 characters</li>
