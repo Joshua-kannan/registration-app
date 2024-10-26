@@ -16,22 +16,18 @@ export class RegistrationFormComponent {
   phone: string = '';
   nationality: string = '';
 
-  // Password criteria flags
   passwordLength: boolean = false;
   hasUppercase: boolean = false;
   hasLowercase: boolean = false;
   hasNumber: boolean = false;
   hasSpecialChar: boolean = false;
-
-  // Toggle to show password criteria
   showPasswordCriteria: boolean = false;
+  formSubmitted: boolean = false;  // Track submission status
 
-  // Method to check if passwords match
   get passwordMismatch(): boolean {
     return this.password !== this.confirmPassword && this.confirmPassword.length > 0;
   }
 
-  // Method to check password criteria
   checkPasswordCriteria(): void {
     const password = this.password || '';
     this.passwordLength = password.length >= 8;
@@ -41,7 +37,6 @@ export class RegistrationFormComponent {
     this.hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
   }
 
-  // New method to check if password meets all criteria
   isPasswordValid(): boolean {
     return (
       this.passwordLength &&
@@ -52,7 +47,6 @@ export class RegistrationFormComponent {
     );
   }
 
-  // Check form validity before enabling the submit button
   isFormValid(): boolean {
     return (
       this.nric !== '' &&
@@ -64,25 +58,13 @@ export class RegistrationFormComponent {
       this.gender !== '' &&
       this.phone !== '' &&
       this.nationality !== '' &&
-      this.isPasswordValid() // Ensure password criteria are met
+      this.isPasswordValid()
     );
   }
 
-  // Submit action
   submitForm() {
     if (this.isFormValid()) {
-      alert('Registration Successful!');
-      console.log('Form submitted:', {
-        nric: this.nric,
-        password: this.password,
-        firstName: this.firstName,
-        dob: this.dob,
-        phone: this.phone,
-        gender: this.gender,
-        nationality: this.nationality
-      });
-    } else {
-      alert('Please fill out the form correctly.');
+      this.formSubmitted = true;
     }
   }
 }

@@ -7,7 +7,7 @@
     </div>
   </header>
 
-  <div class="form-container">
+  <div class="form-container" *ngIf="!formSubmitted">
     <form (ngSubmit)="submitForm()">
       <!-- Login Details Section -->
       <h3>Login Details</h3>
@@ -45,7 +45,7 @@
         <mat-error *ngIf="passwordMismatch">Password mismatch</mat-error>
       </div>
 
-      <!-- Password Criteria -->
+      <!-- Password Criteria Section -->
       <div *ngIf="showPasswordCriteria" class="password-criteria">
         <p>Password must meet the following criteria:</p>
         <ul>
@@ -103,6 +103,7 @@
         </mat-form-field>
       </div>
 
+      <!-- Submit Button -->
       <button
         mat-raised-button
         color="primary"
@@ -113,5 +114,14 @@
         Submit
       </button>
     </form>
+  </div>
+
+  <!-- Success Message: Shows only if form is submitted -->
+  <div class="success-message" *ngIf="formSubmitted">
+    <h2>Registration Successful!</h2>
+    <p>Thank you for registering. Your details have been submitted successfully.</p>
+    <button mat-raised-button color="primary" (click)="formSubmitted = false">
+      Register Another User
+    </button>
   </div>
 </div>
